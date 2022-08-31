@@ -1,0 +1,2 @@
+rootProject.name='H264Tester'
+include ':app'
