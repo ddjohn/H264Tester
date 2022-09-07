@@ -31,13 +31,12 @@ public class SomeService extends Service {
             public void onServiceConnected(ComponentName name, IBinder service) {
                 Log.d(TAG, "onServiceConnected() - " + name);
 
-                IRemoteDisplay remotedisplay = IRemoteDisplay.Stub.asInterface(service);
-
+                IRemoteDisplay remoteDisplay = IRemoteDisplay.Stub.asInterface(service);
                 try {
-                    startH264(remotedisplay.getSurface());
+                    startH264(remoteDisplay.getSurface());
                 }
                 catch (RemoteException e) {
-                    e.printStackTrace();
+                    Log.e(TAG, "exception", e);
                 }
             }
 
@@ -69,9 +68,7 @@ public class SomeService extends Service {
         Canvas canvas = surface.lockCanvas(rect);
 
         Paint paint = new Paint();
-        //paint.setColor(Color.RED);
         Random random = new Random();
-
         paint.setColor(random.nextInt(65536)*65536 + random.nextInt(65536));
         canvas.drawCircle(random.nextInt(rect.right), random.nextInt(rect.bottom), random.nextInt(100), paint);
 

@@ -38,11 +38,7 @@ public class RemoteDisplayService extends Service {
 
             surface = codec.createInputSurface();
             Log.i(TAG, "Create surface:" + surface);
-/*
-            DisplayManager manager = (DisplayManager) this.getSystemService(Context.DISPLAY_SERVICE);
-            VirtualDisplay display = manager.createVirtualDisplay("name", 600, 400, 160, surface, 0);
-            Log.e(TAG, "Display: " + display);
-*/
+
             String file = getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS).getAbsolutePath() + "/a.h264";
             Log.e(TAG, "using file " + file);
             H264MediaCodec stream = new H264MediaCodec(codec, file);

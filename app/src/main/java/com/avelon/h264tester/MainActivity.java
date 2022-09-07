@@ -16,10 +16,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Log.i(TAG, "Start service...");
-        Intent intent = new Intent(this, RemoteDisplayService.class);
-        startService(intent);
+        Intent remoteDispayIntent = new Intent(this, RemoteDisplayService.class);
+        startService(remoteDispayIntent);
 
-        Intent intent2 = new Intent(this, SomeService.class);
-        startService(intent2);
+        Intent someServiceIntent = new Intent(this, SomeService.class);
+        startService(someServiceIntent);
     }
 }

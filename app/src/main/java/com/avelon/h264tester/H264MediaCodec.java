@@ -60,12 +60,11 @@ public class H264MediaCodec extends MediaCodec.Callback {
 
         Log.e(TAG, "buffer: " + new H264Printer(buffer));
 
-        /*String tmp = "";
+        String tmp = "";
         for(int i = 0; i < 10; i++) {
             tmp += " " + buffer.get();
         }
         Log.e(TAG, "buffer available: " + tmp);
-*/
 
         buffer.clear();
         codec.releaseOutputBuffer(index, false);
